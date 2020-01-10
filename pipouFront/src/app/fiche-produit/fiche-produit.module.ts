@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FicheProduitComponent } from './fiche-produit/fiche-produit.component';
+import { FicheProduitComponent } from './fiche-produit.component';
 import { Routes, RouterModule } from '@angular/router';
 
 // panier module

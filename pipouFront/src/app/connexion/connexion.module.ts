@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ConnexionComponent } from './connexion/connexion.component';
+import { ConnexionComponent } from './connexion.component';
 import { Routes, RouterModule } from '@angular/router';
+import { MatCardModule, MatInputModule, MatButtonModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // panier module
 export const connexionRouteList: Routes = [
@@ -15,7 +17,12 @@ export const connexionRouteList: Routes = [
   declarations: [ConnexionComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(connexionRouteList)
+    RouterModule.forChild(connexionRouteList),
+    MatCardModule,
+    MatInputModule,
+    MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [ConnexionComponent]
 })

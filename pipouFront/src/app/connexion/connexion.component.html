@@ -1,0 +1,53 @@
+<div class="main-div centered"> 
+	<mat-card id="connexionCard" class="centered">
+		<mat-card-header class="centered">
+			<img mat-card-image src="../../assets/images/pipou_logo.png" alt="PIPOU_LOGO" style="max-width: 20vw; height: auto;">
+		</mat-card-header>
+
+		<form class="example-form centered" [formGroup]="connexionForm" (ngSubmit)="onSubmit(connexionForm.value)">
+			<mat-card-content>
+					<mat-form-field>
+						<input 
+							matInput 
+							placeholder="Identifiant" 
+							type="text" 
+							formControlName="identifiant" 
+							[ngClass]="{'form-control': true, 'errorInput': identifiantError}"
+							onchange=""
+						/>
+						
+					</mat-form-field>
+					<p *ngIf="identifiantError" class="errorMessage">
+						{{idErrorMessage}}
+					</p>
+					<br>
+					<mat-form-field>
+						<input 
+							matInput 
+							placeholder="Mot de passe" 
+							type="password" 
+							formControlName="motDePasse"
+							[ngClass]="{'form-control': true, 'errorInput': mdpError}"
+						/>
+						
+					</mat-form-field>
+					<p *ngIf="mdpError" class="errorMessage">
+						{{mdpErrorMessage}}
+					</p>
+			</mat-card-content>
+
+			<mat-card-actions class="centeredContent">
+				<button mat-raised-button color="primary" [disabled]="loading" class="btn btn-primary" type="submit">
+					CONFIRMER
+				</button>
+
+				<button mat-button color="primary" [disabled]="loading" class="btn btn-primary" (click)="btnClick()">
+					INSCRIPTION
+				</button>
+			</mat-card-actions>
+			<p *ngIf="errorMessage" class="errorMessage">
+				{{errorMessage}}
+			</p>
+		</form>              
+	</mat-card>
+</div>

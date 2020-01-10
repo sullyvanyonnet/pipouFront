@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BibliothequeComponent } from './bibliotheque/bibliotheque.component';
+import { BibliothequeComponent } from './bibliotheque.component';
 import { Routes, RouterModule } from '@angular/router';
 
 // panier module

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PassageCommandeComponent } from './passage-commande/passage-commande.component';
+import { PassageCommandeComponent } from './passage-commande.component';
 import { Routes, RouterModule } from '@angular/router';
 
 // panier module
