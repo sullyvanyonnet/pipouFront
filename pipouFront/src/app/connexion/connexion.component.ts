@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormControl, FormGroup, FormBuilder, Validator, Validators,ReactiveFormsModule } from "@angular/forms";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { ConnexionService } from './services/connexion.service';
 
 
@@ -15,17 +15,15 @@ export class ConnexionComponent implements OnInit {
 
   loading = false;
   submitted = false;
-  identifiantError = false;
-  mdpError = false;
-  idErrorMessage = "";
-  mdpErrorMessage = "";
+  loginErrorMessage = "";
+  passwordErrorMessage = "";
   errorMessage = "";
   connexionResult: Number;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private connexionService: ConnexionService) {
     this.connexionForm = this.formBuilder.group({
-      identifiant: ['', Validators.required],
-      motDePasse: ['', Validators.required]
+      login: ['coucou', Validators.required],
+      password: ['coucou', Validators.required]
     });
   }
 
@@ -34,7 +32,8 @@ export class ConnexionComponent implements OnInit {
   }
 
   onSubmit(connexionInfo) {
-      console.log(connexionInfo);
+    console.log("SUBMIT");
+    
       if(this.checkInfos(connexionInfo)){
         switch(this.connexionResult){
           case 200:
@@ -58,29 +57,21 @@ export class ConnexionComponent implements OnInit {
   }
 
   checkInfos(connexionInfo){
-    if(connexionInfo['identifiant'].length < 6){
-      this.identifiantError = true;
-      this.idErrorMessage = "Ton id est trop cours!";
+    if(connexionInfo['login'].length < 6){
+      this.loginErrorMessage = "Ton id est trop cours!";
     } else {
-      this.identifiantError = false;
-      this.idErrorMessage = "";
+      this.loginErrorMessage = "";
     }
 
-    if(connexionInfo['motDePasse'].length < 6){
-      this.mdpError = true;
-      this.mdpErrorMessage = "Ton mdp est trop cours!";
+    if(connexionInfo['password'].length < 6){
+      this.passwordErrorMessage = "Ton mdp est trop cours!";
     } else {
-      this.mdpError = false;
-      this.mdpErrorMessage = "";
+      this.passwordErrorMessage = "";
     }
-    console.log(this.identifiantError);
-    console.log(this.mdpError);
     
-    if(this.identifiantError || this.mdpError){      
+    if(this.loginErrorMessage || this.passwordErrorMessage){      
       return false;
-    }
-
-    if (!this.identifiantError && !this.mdpError){
+    } else {
       this.connexionResult = this.connexionService.checkInfos(connexionInfo)
     }
 

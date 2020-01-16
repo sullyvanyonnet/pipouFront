@@ -1,0 +1,21 @@
+.main-div{
+  height: 100vh;
+  background: url('../../../assets/images/RainbowBackground.jpg') repeat center center;
+}
+.centered{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.btn {
+  margin: 5px;
+}
+
+.errorMessage {
+  color: red;
+}
+
+.gridTile {
+  margin: 1rem;
+}

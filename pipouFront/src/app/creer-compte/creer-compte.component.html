@@ -2,34 +2,68 @@
 	<mat-card id="connexionCard" class="centered">
 		<form class="example-form centered" [formGroup]="connexionForm" (ngSubmit)="onSubmit(connexionForm.value)">
 			<mat-card-content>
-					<mat-form-field>
-						<input 
-							matInput 
-							placeholder="Identifiant" 
-							type="text" 
-							formControlName="identifiant" 
-							[ngClass]="{'form-control': true, 'errorInput': identifiantError}"
-							onchange=""
-						/>
-						
-					</mat-form-field>
-					<p *ngIf="identifiantError" class="errorMessage">
-						{{idErrorMessage}}
-					</p>
-					<br>
-					<mat-form-field>
-						<input 
-							matInput 
-							placeholder="Mot de passe" 
-							type="password" 
-							formControlName="motDePasse"
-							[ngClass]="{'form-control': true, 'errorInput': mdpError}"
-						/>
-						
-					</mat-form-field>
-					<p *ngIf="mdpError" class="errorMessage">
-						{{mdpErrorMessage}}
-					</p>
+				<mat-form-field>
+					<input 
+						matInput 
+						placeholder="Nom" 
+						type="text" 
+						formControlName="nom" 
+						[ngClass]="{'form-control': true, 'errorInput': nomError}"
+						onchange=""
+					/>
+				</mat-form-field>
+				<p *ngIf="nomErrorMessage" class="errorMessage">
+					{{nomErrorMessage}}
+				</p>
+
+				<br>
+
+				<mat-form-field>
+					<input 
+						matInput 
+						placeholder="Prenom" 
+						type="text" 
+						formControlName="prenom" 
+						[ngClass]="{'form-control': true, 'errorInput': prenomError}"
+						onchange=""
+					/>
+				</mat-form-field>
+				<p *ngIf="prenomErrorMessage" class="errorMessage">
+					{{prenomErrorMessage}}
+				</p>
+
+				<br>
+
+				<mat-form-field>
+					<input 
+						matInput 
+						placeholder="Login" 
+						type="text" 
+						formControlName="login" 
+						[ngClass]="{'form-control': true, 'errorInput': loginError}"
+						onchange=""
+					/>
+					
+				</mat-form-field>
+				<p *ngIf="loginErrorMessage" class="errorMessage">
+					{{loginErrorMessage}}
+				</p>
+
+				<br>
+
+				<mat-form-field>
+					<input 
+						matInput 
+						placeholder="Password" 
+						type="password" 
+						formControlName="password"
+						[ngClass]="{'form-control': true, 'errorInput': mdpError}"
+					/>
+					
+				</mat-form-field>
+				<p *ngIf="passwordErrorMessage" class="errorMessage">
+					{{passwordErrorMessage}}
+				</p>
 			</mat-card-content>
 
 			<mat-card-actions class="centeredContent">
@@ -38,7 +72,7 @@
 				</button>
 
 				<button mat-button color="primary" [disabled]="loading" class="btn btn-primary" (click)="btnClick()">
-					INSCRIPTION
+					RETOUR
 				</button>
 			</mat-card-actions>
 			<p *ngIf="errorMessage" class="errorMessage">

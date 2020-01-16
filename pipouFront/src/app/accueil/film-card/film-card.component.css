@@ -1,0 +1,17 @@
+.main-div{
+  height: 100vh;
+}
+.centered{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0.2rem;
+}
+.btn {
+  margin: 5px;
+}
+
+.errorMessage {
+  color: red;
+}

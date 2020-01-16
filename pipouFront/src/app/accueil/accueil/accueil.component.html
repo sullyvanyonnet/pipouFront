@@ -1,0 +1,5 @@
+<mat-grid-list [cols]="getNbColumns()" rowHeight="40vh">        
+    <mat-grid-tile *ngFor="let card of cardList">
+      <app-film-card id={{card.id}}></app-film-card>
+    </mat-grid-tile>
+</mat-grid-list>

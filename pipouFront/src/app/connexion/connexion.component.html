@@ -9,30 +9,30 @@
 					<mat-form-field>
 						<input 
 							matInput 
-							placeholder="Identifiant" 
+							placeholder="Login" 
 							type="text" 
-							formControlName="identifiant" 
-							[ngClass]="{'form-control': true, 'errorInput': identifiantError}"
+							formControlName="login" 
+							[ngClass]="{'form-control': true, 'errorInput': loginError}"
 							onchange=""
 						/>
-						
 					</mat-form-field>
-					<p *ngIf="identifiantError" class="errorMessage">
-						{{idErrorMessage}}
+					<p *ngIf="loginErrorMessage" class="errorMessage">
+						{{loginErrorMessage}}
 					</p>
+
 					<br>
+
 					<mat-form-field>
 						<input 
 							matInput 
-							placeholder="Mot de passe" 
+							placeholder="Password" 
 							type="password" 
-							formControlName="motDePasse"
-							[ngClass]="{'form-control': true, 'errorInput': mdpError}"
-						/>
-						
+							formControlName="password"
+							[ngClass]="{'form-control': true, 'errorInput': passwordError}"
+						/>	
 					</mat-form-field>
-					<p *ngIf="mdpError" class="errorMessage">
-						{{mdpErrorMessage}}
+					<p *ngIf="passwordErrorMessage" class="errorMessage">
+						{{passwordErrorMessage}}
 					</p>
 			</mat-card-content>
 
@@ -41,7 +41,7 @@
 					CONFIRMER
 				</button>
 
-				<button mat-button color="primary" [disabled]="loading" class="btn btn-primary" (click)="btnClick()">
+				<button mat-button color="primary" [disabled]="loading" class="btn btn-primary" (click)="btnClick()" type="button">
 					INSCRIPTION
 				</button>
 			</mat-card-actions>
