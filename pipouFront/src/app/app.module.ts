@@ -8,7 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatToolbarModule, MatIconModule, MatMenuModule, MatButtonModule, MatDividerModule } from '@angular/material';
+import { NgMatSearchBarModule } from 'ng-mat-search-bar';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatIconModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatDividerModule,
+    NgMatSearchBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

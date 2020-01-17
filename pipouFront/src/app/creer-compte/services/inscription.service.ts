@@ -21,7 +21,7 @@ export class InscriptionService {
     console.log(client);
     
     return this.httpClient
-      .post("http://localhost:8080/pipou//client/enregistrer.htm", client)
+      .post("http://localhost:8080/pipou/client/enregistrer.htm", client)
       .toPromise()
       .then(result => {
         console.log(result);

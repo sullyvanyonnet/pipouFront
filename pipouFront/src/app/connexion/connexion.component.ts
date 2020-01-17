@@ -22,8 +22,8 @@ export class ConnexionComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private router: Router, private connexionService: ConnexionService) {
     this.connexionForm = this.formBuilder.group({
-      login: ['coucou', Validators.required],
-      password: ['coucou', Validators.required]
+      login: ['login', Validators.required],
+      password: ['123456', Validators.required]
     });
   }
 
@@ -57,7 +57,7 @@ export class ConnexionComponent implements OnInit {
   }
 
   checkInfos(connexionInfo){
-    if(connexionInfo['login'].length < 6){
+    if(connexionInfo['login'].length < 1){
       this.loginErrorMessage = "Ton id est trop cours!";
     } else {
       this.loginErrorMessage = "";
@@ -72,7 +72,7 @@ export class ConnexionComponent implements OnInit {
     if(this.loginErrorMessage || this.passwordErrorMessage){      
       return false;
     } else {
-      this.connexionResult = this.connexionService.checkInfos(connexionInfo)
+      this.connexionResult = this.connexionService.login(connexionInfo)
     }
 
     return true;
