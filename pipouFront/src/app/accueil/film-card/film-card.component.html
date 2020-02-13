@@ -1,12 +1,13 @@
 <div > 
 	<mat-card id="connexionCard" class="centered">
 		<mat-card-header class="centered">
-			<img mat-card-image src="../../../assets/images/default.png" alt="default_card_image" style="max-width: 100vw; height: auto;">
+			<img mat-card-image [src]="film.image | defaultImage:'../../../assets/images/default.png'"
+					alt="default_card_image" style="max-height: 30vh; width: auto;">
 		</mat-card-header>
 		
 		<mat-card-content>
-			<p>{{titre}}</p>
-			<p>{{note}}</p>
+			<p>{{film.titre}}</p>
+			<p>{{film.note}}</p>
 		</mat-card-content> 
 	</mat-card>
 </div>

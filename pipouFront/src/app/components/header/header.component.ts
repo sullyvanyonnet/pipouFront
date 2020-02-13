@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
   }
 
   clientConnecte(){
-    return ConnexionService.clientConnecte;
+    return this.connexionService.checkConnexion();
   }
 
 }

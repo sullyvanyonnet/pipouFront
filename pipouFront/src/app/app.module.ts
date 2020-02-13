@@ -10,6 +10,7 @@ import { FooterComponent } from './components/footer/footer.component';
 
 import { MatToolbarModule, MatIconModule, MatMenuModule, MatButtonModule, MatDividerModule } from '@angular/material';
 import { NgMatSearchBarModule } from 'ng-mat-search-bar';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NgMatSearchBarModule } from 'ng-mat-search-bar';
     MatMenuModule,
     MatButtonModule,
     MatDividerModule,
-    NgMatSearchBarModule
+    NgMatSearchBarModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

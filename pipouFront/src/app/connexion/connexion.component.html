@@ -9,7 +9,7 @@
 					<mat-form-field>
 						<input 
 							matInput 
-							placeholder="Login" 
+							placeholder={{identifiantMessage}}
 							type="text" 
 							formControlName="login" 
 							[ngClass]="{'form-control': true, 'errorInput': loginError}"
@@ -25,7 +25,7 @@
 					<mat-form-field>
 						<input 
 							matInput 
-							placeholder="Password" 
+							placeholder={{mdpMessage}}
 							type="password" 
 							formControlName="password"
 							[ngClass]="{'form-control': true, 'errorInput': passwordError}"
@@ -38,11 +38,11 @@
 
 			<mat-card-actions class="centeredContent">
 				<button mat-raised-button color="primary" [disabled]="loading" class="btn btn-primary" type="submit">
-					CONFIRMER
+					{{connexionMessage}}
 				</button>
 
 				<button mat-button color="primary" [disabled]="loading" class="btn btn-primary" (click)="btnClick()" type="button">
-					INSCRIPTION
+					{{inscriptionMessage}}
 				</button>
 			</mat-card-actions>
 			<p *ngIf="errorMessage" class="errorMessage">

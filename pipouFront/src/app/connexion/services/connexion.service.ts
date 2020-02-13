@@ -14,7 +14,6 @@ export class ConnexionService {
 
   login(connexionInfo): Number{
     console.log(connexionInfo);
-    ConnexionService.clientConnecte = 1;
     return 200;
     
     const client = new Client();
@@ -22,11 +21,14 @@ export class ConnexionService {
     client.login = connexionInfo['login'];
     client.password = connexionInfo['password'];
     
-    this.httpClient.post("http://localhost:8080/pipou/connection.htm", client)
+    this.httpClient.post("http://localhost:8080/pipouBack2/connection.htm", client)
     .toPromise()
     .then(result => {
       console.log(result);
-      ConnexionService.clientConnecte = result['clientId'];
+      
+      ConnexionService.clientConnecte = <Number>result;
+      //ConnexionService.clientConnecte = result['clientId'];
+      localStorage.setItem("connexionToken", <string>result);
       this.router.navigateByUrl('/accueil');
       return 200;
     })
@@ -40,20 +42,15 @@ export class ConnexionService {
 
   logout() {
     ConnexionService.clientConnecte = undefined;
+    localStorage.removeItem("connexionToken");
     this.router.navigateByUrl('/connexion');
-    return 200;
+  }
 
-    this.httpClient.get("http://localhost:8080/pipou/client/logout.htm")
-    .toPromise()
-    .then(result => {
-      console.log(result);
-      ConnexionService.clientConnecte = undefined;
-      this.router.navigateByUrl('/connexion');
-      return 200;
-    })
-    .catch(error => {
-      console.error("error ", error);
-      return undefined;
-    });
+  checkConnexion(){
+    if(localStorage.getItem("connexionToken")){
+      return true;
+    } else {
+      return false;
+    }
   }
 }

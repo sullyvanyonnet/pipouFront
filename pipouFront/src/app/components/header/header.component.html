@@ -1,14 +1,16 @@
-<mat-toolbar color="primary" class="crm-navigation-bar">
+<mat-toolbar color="primary" class="crm-navigation-bar" >
 
   <mat-toolbar-row>
 
-		<img mat-card-image src="../../../assets/images/pipou_logo.png" alt="PIPOU_LOGO" style="max-width: 5vw; height: auto;" routerLink="/accueil">
+		<img mat-card-image src="../../../assets/images/pipou_logo.png" alt="PIPOU_LOGO" style="max-height: 5vw; width: auto;" routerLink="/accueil">
     
     <div *ngIf='clientConnecte()' fxFlex fxLayout fxLayoutAlign="flex-end">
-      
-      <mat-search-bar></mat-search-bar>
 
-      <ul fxLayout fxLayoutGap="20px" class="navigation-items">
+      <ul fxLayout fxLayoutGap="20px" class="navigation-items" style="justify-content: center;">
+
+        <li fxHide.xs class="inline" style="justify-content: center;">
+          <mat-search-bar ></mat-search-bar>
+        </li>
 
         <li fxHide.xs class="inline">
           <button mat-icon-button routerLink="/panier">

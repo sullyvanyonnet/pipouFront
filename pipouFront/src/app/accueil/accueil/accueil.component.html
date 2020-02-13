@@ -1,5 +1,5 @@
 <mat-grid-list [cols]="getNbColumns()" rowHeight="40vh">        
-    <mat-grid-tile *ngFor="let card of cardList">
-      <app-film-card id={{card.id}} (click)="cardClick(card.id)"></app-film-card>
+    <mat-grid-tile *ngFor="let film of filmList" [@simpleFadeAnimation]="'in'">
+      <app-film-card [film]="film" (click)="cardClick(film)"></app-film-card>
     </mat-grid-tile>
 </mat-grid-list>

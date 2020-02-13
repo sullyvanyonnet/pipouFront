@@ -7,11 +7,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./fiche-produit.component.css']
 })
 export class FicheProduitComponent implements OnInit {
-  private static clientId: Number;
 
-  constructor() { }
+  private static clientId: Number;
+  private static film: any;
+
+  constructor() { 
+    FicheProduitComponent.film = {};
+  }
 
   ngOnInit() {
+  }
+
+  static setCard(card: any) {
+    FicheProduitComponent.film = card;
   }
 
   static setClientId(id: Number){
