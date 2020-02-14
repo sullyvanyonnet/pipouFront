@@ -1,6 +1,6 @@
 export class Film {
-  id: Number;
-  titre: string;
-  image: string;
-  note: Number;
+  idFilm: Number;
+  nom: string;
+  lienImage: string;
+  tarif: Number;
 }

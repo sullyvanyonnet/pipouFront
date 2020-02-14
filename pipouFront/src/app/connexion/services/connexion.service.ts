@@ -14,8 +14,8 @@ export class ConnexionService {
 
   login(connexionInfo): Number{
     console.log(connexionInfo);
-    return 200;
-    /*
+    //return 200;
+    
     const client = new Client();
 
     client.login = connexionInfo['login'];
@@ -37,7 +37,7 @@ export class ConnexionService {
       return undefined;
     });
     
-    return undefined; */
+    return undefined; 
   }
 
   logout() {

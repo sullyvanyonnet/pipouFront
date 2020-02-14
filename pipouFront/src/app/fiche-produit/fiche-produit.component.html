@@ -1,1 +1,8 @@
-<p>fiche-produit for {{clientId}} works!</p>
+<div style="justify-content: center;">
+  <img [src]="film.lienImage">
+  <p>{{film.nom}}</p>
+  <p>{{film.synopsis}}</p>
+  <p>{{film.tarif}} €</p>
+
+  <input type="button" (click)="addToPanier(film)"/>
+</div>

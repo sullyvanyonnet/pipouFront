@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Film } from '../models/film.model';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { ConnexionService } from '../connexion/services/connexion.service';
 
 @Component({
   selector: 'app-panier',
@@ -7,9 +11,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PanierComponent implements OnInit {
 
-  constructor() { }
+  filmList: Array<Film>;
+  constructor(private router: Router, private httpClient: HttpClient) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.filmList = await this.httpClient.get("http://localhost:8080/pipouBack2/film/getPanier.htm?id=" + ConnexionService.clientConnecte)
+    .toPromise()
+    .then(result => {
+      console.log(result);
+      return result;
+    })
+    .catch(error => {
+      console.error("error ", error);
+      return undefined;
+    });
   }
 
+  async passageCommande(){
+    await this.httpClient.get("http://localhost:8080/pipouBack2/film/viderPanier.htm?id=" + ConnexionService.clientConnecte)
+    .toPromise()
+    .then(result => {
+      console.log(result);
+      return result;
+    })
+    .catch(error => {
+      console.error("error ", error);
+      return undefined;
+    });
+  }
 }

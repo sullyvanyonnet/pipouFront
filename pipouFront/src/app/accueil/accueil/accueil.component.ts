@@ -42,9 +42,9 @@ export class AccueilComponent implements OnInit {
     this.innerWidth = window.innerWidth; 
     this.nbCols = (window.innerWidth <= 400) ? 1 : 6;
     
-    this.filmList = films["films"];
-    /*
-    this.httpClient.get("http://localhost:8080/pipouBack2/film/listerfilms.htm")
+    //this.filmList = films["films"];
+    
+    this.filmList = await this.httpClient.get("http://localhost:8080/pipouBack2/film/listerfilms.htm")
     .toPromise()
     .then(result => {
       console.log(result);
@@ -54,9 +54,7 @@ export class AccueilComponent implements OnInit {
       console.error("error ", error);
       return undefined;
     });
-    */
-
-    
+        
   }
 
   @HostListener('window:resize', ['$event'])
@@ -71,10 +69,10 @@ export class AccueilComponent implements OnInit {
   getRowHeight(){
     return Math.ceil(this.innerWidth / (500))
   }
-  
-  cardClick(card){
-    FicheProduitComponent.setClientId(ConnexionService.clientConnecte);
-    FicheProduitComponent.setCard(card);
-    this.router.navigateByUrl('/ficheProduit');
+
+  cardClick(film: Film){
+    console.log(film);
+    
+    this.router.navigateByUrl('/ficheProduit', { state: film });
   }
 }
