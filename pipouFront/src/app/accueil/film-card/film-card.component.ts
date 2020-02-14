@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FicheProduitComponent } from 'src/app/fiche-produit/fiche-produit.component';
 import { Router } from '@angular/router';
-import { Film } from 'src/app/vo/film.vo';
+import { Film } from 'src/app/models/film.model';
 
 @Component({
   selector: 'app-film-card',
@@ -9,16 +9,21 @@ import { Film } from 'src/app/vo/film.vo';
   styleUrls: ['./film-card.component.css']
 })
 export class FilmCardComponent implements OnInit {
-  @Input() film: Film;
+  @Input() 
+  film: Film;
 
 
-  constructor(private router: Router) { 
-    console.log(this.film);
-    
-  }
+  constructor(private router: Router) {}
 
   ngOnInit() {
 
+    if(this.film){
+      console.log(this.film.image);
+      console.log(this.film.id);
+      console.log(this.film.note);
+      console.log(this.film.titre);
+    }
+   
   }
 
 }

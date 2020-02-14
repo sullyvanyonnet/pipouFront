@@ -1,0 +1,22 @@
+{
+  "films" : [
+    {
+      "id":1,
+      "titre":"Weenie l'ourson au pays merveilleux des junkies",
+      "image":"https://fr.web.img2.acsta.net/pictures/18/07/11/14/12/4134938.jpg",
+      "note":4
+    },
+    {
+      "id":2,
+      "titre":"Peepoodo",
+      "image":"https://peepoodo.bobbypills.com/images/icon.jpg",
+      "note":5
+    },
+    {
+      "id":3,
+      "titre":"La Pat Patrouille fait une descente en teuftek",
+      "image":"https://photos.tf1.fr/1200/0/vignette-portrait-paw-patrol-eeb718-2e6edd-0@1x.jpg",
+      "note":2
+    }
+  ]
+}

@@ -4,7 +4,9 @@ import { FicheProduitComponent } from 'src/app/fiche-produit/fiche-produit.compo
 import { ConnexionService } from 'src/app/connexion/services/connexion.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { HttpClient } from '@angular/common/http';
-import { Film } from 'src/app/vo/film.vo';
+import { Film } from 'src/app/models/film.model';
+
+import * as films from  '../../../assets/mockData/films.json';
 
 @Component({
   selector: 'app-accueil',
@@ -28,65 +30,48 @@ import { Film } from 'src/app/vo/film.vo';
 })
 export class AccueilComponent implements OnInit {
 
-  static filmList: Film[];
+  filmList: Array<Film>;
   innerWidth: number;
+  nbCols: number;
 
   constructor(private router: Router, private httpClient: HttpClient) { 
-    this.innerWidth = window.innerWidth;
 
-    let filmsMock = [
-      {
-        id:1,
-        titre:'Weenie l\'ourson au pays merveilleux des junkies',
-        image:'https://fr.web.img2.acsta.net/pictures/18/07/11/14/12/4134938.jpg',
-        note:4
-      },
-      {
-        id:2,
-        titre:'Peepoodo',
-        image:'https://peepoodo.bobbypills.com/images/icon.jpg',
-        note:5
-      },
-      {
-        id:3,
-        titre:'La Pat Patrouille fait une descente en teuftek',
-        image:'https://photos.tf1.fr/1200/0/vignette-portrait-paw-patrol-eeb718-2e6edd-0@1x.jpg',
-        note:2
-      }
-    ];
-    AccueilComponent.filmList = filmsMock;
-    /* 
+  }
+
+  async ngOnInit() {
+    this.innerWidth = window.innerWidth; 
+    this.nbCols = (window.innerWidth <= 400) ? 1 : 6;
+    
+    this.filmList = films["films"];
+    /*
     this.httpClient.get("http://localhost:8080/pipouBack2/film/listerfilms.htm")
     .toPromise()
     .then(result => {
       console.log(result);
-      AccueilComponent.filmList = result;
-      return 200;
+      return result;
     })
     .catch(error => {
       console.error("error ", error);
       return undefined;
-    });*/
-  }
+    });
+    */
 
-  ngOnInit() {
-
-  }
-
-  getCards(){
-
+    
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.innerWidth = window.innerWidth;
-    
   }
 
   getNbColumns(){
     return Math.ceil(this.innerWidth / (500))
   }
 
+  getRowHeight(){
+    return Math.ceil(this.innerWidth / (500))
+  }
+  
   cardClick(card){
     FicheProduitComponent.setClientId(ConnexionService.clientConnecte);
     FicheProduitComponent.setCard(card);
