@@ -1,12 +1,10 @@
 import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
-import { FicheProduitComponent } from 'src/app/fiche-produit/fiche-produit.component';
-import { ConnexionService } from 'src/app/connexion/services/connexion.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { HttpClient } from '@angular/common/http';
-import { Film } from 'src/app/models/film.model';
 
-import * as films from  '../../../assets/mockData/films.json';
+import { Film } from 'src/app/models/film.model';
+import { FilmsService } from 'src/app/services/filmsService/films.service';
 
 @Component({
   selector: 'app-accueil',
@@ -30,21 +28,16 @@ import * as films from  '../../../assets/mockData/films.json';
 })
 export class AccueilComponent implements OnInit {
 
-  filmList: Array<Film>;
   innerWidth: number;
   nbCols: number;
 
-  constructor(private router: Router, private httpClient: HttpClient) { 
-
-  }
+  constructor(private router: Router, private httpClient: HttpClient, private filmsService: FilmsService) { }
 
   async ngOnInit() {
     this.innerWidth = window.innerWidth; 
     this.nbCols = (window.innerWidth <= 400) ? 1 : 6;
     
-    //this.filmList = films["films"];
-    
-    this.filmList = await this.httpClient.get("http://localhost:8080/pipouBack2/film/listerfilms.htm")
+    var films = await this.httpClient.get("http://localhost:8080/pipouBack2/film/listerfilms.htm")
     .toPromise()
     .then(result => {
       console.log(result);
@@ -54,7 +47,8 @@ export class AccueilComponent implements OnInit {
       console.error("error ", error);
       return undefined;
     });
-        
+
+    this.filmsService.setFilms(films);
   }
 
   @HostListener('window:resize', ['$event'])
@@ -72,7 +66,6 @@ export class AccueilComponent implements OnInit {
 
   cardClick(film: Film){
     console.log(film);
-    
     this.router.navigateByUrl('/ficheProduit', { state: film });
   }
 }

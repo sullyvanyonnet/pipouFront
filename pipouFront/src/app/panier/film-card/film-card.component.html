@@ -1,13 +1,17 @@
 <div > 
-	<mat-card id="connexionCard" class="centered">
-		<mat-card-header class="centered">
-			<img mat-card-image [src]="film.lienImage | defaultImage:'../../../assets/images/default.png'"
-					alt="default_card_image" style="max-width:100%;max-height:100%;">
+	<mat-card id="connexionCard" class="centered card-film">
+	
+
+		<img mat-card-image calss="image" [src]="film.lienImage | defaultImage:'../../../assets/images/default.png'"
+		alt="default_card_image" >
+		<mat-card-header>
+			<mat-card-title>{{film.nom}}</mat-card-title>
 		</mat-card-header>
-		
-		<mat-card-content>
-			<p>{{film.nom}}</p>
+
+		<mat-card-content class="centered">
 			<p>{{film.tarif}} €</p>
 		</mat-card-content>
+		
+
 	</mat-card>
 </div>

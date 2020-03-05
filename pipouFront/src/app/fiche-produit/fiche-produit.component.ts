@@ -4,7 +4,7 @@ import { Film } from '../models/film.model';
 import { filter, map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { ConnexionService } from '../connexion/services/connexion.service';
+import { ConnexionService } from '../services/connexionService/connexion.service';
 
 @Component({
   selector: 'app-fiche-produit',

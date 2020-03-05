@@ -9,7 +9,7 @@
       <ul fxLayout fxLayoutGap="20px" class="navigation-items" style="justify-content: center;">
 
         <li fxHide.xs class="inline" style="justify-content: center;">
-          <mat-search-bar ></mat-search-bar>
+          <mat-search-bar [formControl]="recherche" (onEnter)="rechercheFilms()"></mat-search-bar>
         </li>
 
         <li fxHide.xs class="inline">

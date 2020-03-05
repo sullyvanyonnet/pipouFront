@@ -21,7 +21,7 @@ export class ConnexionService {
     client.login = connexionInfo['login'];
     client.password = connexionInfo['password'];
     
-    this.httpClient.post("http://localhost:8080/pipouBack2/connection.htm", client)
+    this.httpClient.post("http://localhost:8080/pipouBack2/connection", client)
     .toPromise()
     .then(result => {
       console.log(result);
@@ -43,6 +43,7 @@ export class ConnexionService {
   logout() {
     ConnexionService.clientConnecte = undefined;
     localStorage.removeItem("connexionToken");
+    localStorage.removeItem("film");
     this.router.navigateByUrl('/connexion');
   }
 
