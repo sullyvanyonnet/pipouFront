@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ConnexionService } from 'src/app/connexion/services/connexion.service';
+import { ConnexionService } from 'src/app/connexion/services/connexionService';
 import { HttpClient } from '@angular/common/http';
 import { Film } from 'src/app/models/film.model';
 import { formatDate } from '@angular/common';
