@@ -19,3 +19,7 @@
 .gridTile {
   margin: 1rem;
 }
+
+.mat-grid-tile{
+  height: calc(0px + 45vh) !important;
+}
