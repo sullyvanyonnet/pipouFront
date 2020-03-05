@@ -4,6 +4,8 @@ import { FicheProduitComponent } from './fiche-produit.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ApplicationPipesModule } from '../application-pipes-module/application-pipes-module.module';
 import { MatCardModule, MatInputModule, MatButtonModule, MatGridListModule } from '@angular/material';
+import { CommentaireFilmComponent } from './commentaire-film/commentaire-film.component';
+import { NouveauCommentaireFilmComponent } from './nouveau-commentaire-film/nouveau-commentaire-film.component';
 
 // panier module
 export const ficheProduitRouteList: Routes = [
@@ -14,7 +16,7 @@ export const ficheProduitRouteList: Routes = [
 ];
 
 @NgModule({
-  declarations: [FicheProduitComponent],
+  declarations: [FicheProduitComponent, CommentaireFilmComponent, NouveauCommentaireFilmComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(ficheProduitRouteList),

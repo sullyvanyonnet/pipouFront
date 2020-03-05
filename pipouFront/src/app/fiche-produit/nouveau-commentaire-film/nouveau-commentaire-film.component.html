@@ -1,0 +1,12 @@
+<mat-card class="" style="background-color: beige;max-width: 80vw;margin: auto;">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+        <mat-form-field class="nouveauCommentaire" >
+            <textarea matInput #titleInput placeholder="Ajouter un commentaire public"></textarea>
+        </mat-form-field>
+    </mat-card-header>  
+      <mat-card-actions align="end">
+        <button mat-button (click)="Envoyer(titleInput.value)">Envoyer</button>
+      </mat-card-actions>
+
+  </mat-card>

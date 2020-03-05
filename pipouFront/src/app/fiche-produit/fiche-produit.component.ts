@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router, NavigationStart, ActivatedRoute } from '@angular/router';
 import { Film } from '../models/film.model';
+import { Commentaire } from '../models/commentaire.model';
+
 import { filter, map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -13,6 +15,7 @@ import { ConnexionService } from '../connexion/services/connexion.service';
 })
 export class FicheProduitComponent implements OnInit {
   private film: Film;
+  private commentaireList: Array<Commentaire>;
 
   constructor(private router: Router, private httpClient: HttpClient, private connexionService: ConnexionService) { 
   }
@@ -25,6 +28,7 @@ export class FicheProduitComponent implements OnInit {
       localStorage.setItem("film", JSON.stringify(this.film));
     }
     console.log(this.film);
+    this.rechercheCommentaire();
     
   }
 
@@ -33,6 +37,20 @@ export class FicheProduitComponent implements OnInit {
     console.log(this.film);
     
   }
+
+  async rechercheCommentaire(){  
+    this.commentaireList = await this.httpClient.get("http://localhost:8080/pipouBack2/listerCommentaire?id="+ConnexionService.clientConnecte)
+    .toPromise()
+    .then(result => {
+      console.log(result);
+      return result;
+    })
+    .catch(error => {
+      console.error("error ", error);
+      return null;
+    });
+  }
+  
 
   addToPanier(){
     let data = {

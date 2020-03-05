@@ -17,9 +17,7 @@
 .btn {
   margin: 5px;
 }
-.mat-grid-tile{
-  height: calc(0px + 45vh) !important;
-}
+
 .errorMessage {
   color: red;
 }

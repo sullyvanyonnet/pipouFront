@@ -1,4 +1,4 @@
-  <mat-card id="connexionCard" class="centered" style="background-color: beige;max-width: 80vw;margin: auto;">
+  <mat-card id="connexionCard" class="centered" style="background-color: beige;max-width: 80vw;margin: auto; margin-bottom: 50px;">
 		<mat-card-header class="centered">
 			<img mat-card-image [src]="film.lienImage | defaultImage:'../../../assets/images/default.png'"
 					alt="default_card_image" style="max-width:100%;max-height:100%;">
@@ -9,5 +9,7 @@
       <p>{{film.synopsis}}</p>
 			<p>{{film.tarif}} €</p>
       <button *ngIf='clientConnecte()' mat-raised-button (click)="addToPanier(film)" color="primary">Ajouter au panier</button>
-		</mat-card-content>
+	</mat-card-content>
   </mat-card>
+  	<app-nouveau-commentaire-film [film]="film"> </app-nouveau-commentaire-film>
+  	<app-commentaire-film *ngFor="let commentaire of commentaireList" [commentaire]="commentaire"> </app-commentaire-film>
