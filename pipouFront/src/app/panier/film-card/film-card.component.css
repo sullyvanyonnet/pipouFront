@@ -8,11 +8,25 @@
   align-items: center;
   flex-direction: column;
   margin: 0.2rem;
+  background-color: rgba(245,245,220,1);
+}
+.centered:hover{
+  background-color: rgba(245,245,220,0.5);
+
 }
 .btn {
   margin: 5px;
 }
-
+.mat-grid-tile{
+  height: calc(0px + 45vh) !important;
+}
 .errorMessage {
   color: red;
+}
+mat-card img{
+  margin-top: 5px;
+  object-fit: cover; /*this makes the image in src fit to the size specified below*/
+  max-width: 300px;
+  width: 100%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
+  height: 80%;
 }

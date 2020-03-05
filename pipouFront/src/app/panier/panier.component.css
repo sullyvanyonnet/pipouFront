@@ -1,0 +1,10 @@
+.centered{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.list{
+  margin: 2%;
+}

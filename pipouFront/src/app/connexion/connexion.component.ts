@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { ConnexionService } from './services/connexion.service';
+import { ConnexionService } from '../services/connexionService/connexion.service';
 import { TranslateService } from '@ngx-translate/core';
 
 
