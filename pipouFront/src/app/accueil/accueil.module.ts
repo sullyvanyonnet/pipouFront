@@ -4,7 +4,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { Routes, RouterModule } from '@angular/router';
 import { MatCardModule, MatInputModule, MatButtonModule, MatGridListModule } from '@angular/material';
 import { FilmCardComponent } from './film-card/film-card.component';
-import { DefaultImagePipe } from '../default-image.pipe';
+import { ApplicationPipesModule } from '../application-pipes-module/application-pipes-module.module';
 
 // panier module
 export const accueilRouteList: Routes = [
@@ -15,14 +15,15 @@ export const accueilRouteList: Routes = [
 ];
 
 @NgModule({
-  declarations: [AccueilComponent, FilmCardComponent, DefaultImagePipe],
+  declarations: [AccueilComponent, FilmCardComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(accueilRouteList),
     MatCardModule,
     MatInputModule,
     MatButtonModule,
-    MatGridListModule
+    MatGridListModule,
+    ApplicationPipesModule
   ],
   exports: [AccueilComponent]
 })

@@ -14,7 +14,7 @@ import { ConnexionService } from '../connexion/services/connexion.service';
 export class FicheProduitComponent implements OnInit {
   private film: Film;
 
-  constructor(private router: Router, private httpClient: HttpClient) { 
+  constructor(private router: Router, private httpClient: HttpClient, private connexionService: ConnexionService) { 
   }
 
   ngOnInit() {
@@ -53,4 +53,7 @@ export class FicheProduitComponent implements OnInit {
     });
   }
 
+  clientConnecte(){
+    return this.connexionService.checkConnexion();
+  }
 }

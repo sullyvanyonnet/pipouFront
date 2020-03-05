@@ -38,7 +38,7 @@ export class ConnexionComponent implements OnInit {
 
     this.connexionForm = this.formBuilder.group({
       login: ['login', Validators.required],
-      password: ['123456', Validators.required]
+      password: ['password', Validators.required]
     });
   }
 
