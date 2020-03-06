@@ -39,7 +39,7 @@ export class FicheProduitComponent implements OnInit {
   }
 
   async rechercheCommentaire(){  
-    this.commentaireList = await this.httpClient.get("http://localhost:8080/pipouBack2/listerCommentaire?id="+ConnexionService.clientConnecte)
+    this.commentaireList = await this.httpClient.get("http://localhost:8080/pipouBack2/listerCommentaire?id="+this.film.idFilm)
     .toPromise()
     .then(result => {
       console.log(result);
