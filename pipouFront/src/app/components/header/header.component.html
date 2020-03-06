@@ -26,14 +26,14 @@
 
             <button mat-menu-item routerLink="/bibliotheque">
               <mat-icon>list</mat-icon>
-              <span>Bibliothèque</span>
+              <span>{{bibliothequeMenu}}</span>
             </button>
 
             <mat-divider></mat-divider>
 
             <button mat-menu-item (click)="logout()">
               <mat-icon>exit_to_app</mat-icon>
-              <span>Deconnexion</span>
+              <span>{{deconnexionMenu}}</span>
             </button>
 
           </mat-menu>

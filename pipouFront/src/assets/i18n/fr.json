@@ -3,6 +3,7 @@
     "INSCRIPTION": "INSCRIPTION",
     "IDENTIFIANT": "Identifiant",
     "MDP": "Mot de passe",
-    "PROMPT_SEARCH": "rechercher une ville...",
-    "LAUNCH": "Lancer"
+    "RECHERCHE": "rechercher un film",
+    "BIBLIOTHEQUE": "Bibliothèque",
+    "DECONNEXION": "Déconnexion"
 }

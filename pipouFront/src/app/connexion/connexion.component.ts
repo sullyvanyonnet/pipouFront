@@ -26,9 +26,7 @@ export class ConnexionComponent implements OnInit {
   connexionMessage: string;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private connexionService: ConnexionService, translate: TranslateService) {
-    // this language will be used as a fallback when a translation isn't found in the current language
     translate.setDefaultLang('fr');
-    // the lang to use, if the lang isn't available, it will use the current loader to get them
     translate.use('fr');
 
     translate.get('CONNEXION').subscribe((res: string) => {this.connexionMessage = res;});

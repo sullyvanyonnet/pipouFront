@@ -3,6 +3,7 @@
     "INSCRIPTION": "SIGN UP",
     "IDENTIFIANT": "Login",
     "MDP": "Password",
-    "PROMPT_SEARCH": "rechercher une ville...",
-    "LAUNCH": "Lancer"
+    "RECHERCHE": "looking for a movie?",
+    "BIBLIOTHEQUE": "Library",
+    "DECONNEXION": "Log out"
 }
